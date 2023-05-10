@@ -1,5 +1,6 @@
+
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Inter } from '@next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,8 +15,24 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className='dark'>
+      <body>
+        <div className="overflow-hidden w-full h-full relative flex">
+          <div className='dark hidden flex-shrink-0 bg-gray-900 md:flex md:w-[260px] md:flex-col'>
+            <div className="flex h-full min-h-0 flex-col">
+              <div className='relative h-full w-full flex-1 items-start border-white/20'>
+                <nav className='flex h-full w-full flex-col p-2'>
+                  <a href="" className='flex py-3 px-3 items-center gap-3 transition-colors duration-200 text-white cursor-pointer text-sm rounded-md border border-white/20 hover:bg-gray-500/10 mb-1 flex-shrink-0'>
+                  <svg stroke="currentColor" fill="none" viewBox="0 0 24 24"  className="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    New Chat
+                  </a>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div className="flex h-full flex-1 flex-col ">{children}</div>
+        </div>
+      </body>
     </html>
   )
 }
